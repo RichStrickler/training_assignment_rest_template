@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.training.assignment.restTemplate.demo.model.DataHandler;
+import com.training.assignment.restTemplate.demo.controller.service.EmployeeHandler;
 import com.training.assignment.restTemplate.demo.model.Employee;
 
 @RestController
-public class DataController {
+public class EmployeeRequests {
 
   @Autowired
-  DataHandler dataHandler;
+  EmployeeHandler employeeHandler;
 
   @PostMapping("/employee")
   @ResponseBody
   public void postEmployee(@RequestBody Employee teleData) {
-    dataHandler.postEmployee(teleData);
+    employeeHandler.postEmployee(teleData);
 
 
   }
@@ -27,7 +27,7 @@ public class DataController {
   @GetMapping("/employee/{id}")
   @ResponseBody
   public String getEmployee(@PathVariable("id") int employeeId) {
-    return dataHandler.getEmployee(employeeId);
+    return employeeHandler.getEmployee(employeeId);
 
   }
 
